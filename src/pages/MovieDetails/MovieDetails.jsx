@@ -1,8 +1,9 @@
-import { useParams, useLocation, Link, Outlet } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { useEffect, Suspense, useState } from 'react';
-import { StyledLink, AdditionalInfoList } from './MovieDetails.styled';
+import { StyledLink } from 'components/ui';
 import { getMovieInfo } from 'api/fetchMovie';
-import { MovieCard } from './MovieCard';
+import { MovieCard } from 'components/MovieCard';
+import { MovieDetailsActions } from 'components/MovieDetailsActions';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -30,18 +31,7 @@ const MovieDetails = () => {
       </div>
       <div>
         <h3>Additional information</h3>
-        <AdditionalInfoList>
-          <li>
-            <Link to="cast" state={{ id: movieId, from: backLinkHref }}>
-              Read about our cast
-            </Link>
-          </li>
-          <li>
-            <Link to="reviews" state={{ id: movieId, from: backLinkHref }}>
-              Get to know the reviews
-            </Link>
-          </li>
-        </AdditionalInfoList>
+        <MovieDetailsActions movieId={movieId} backLinkHref={backLinkHref} />
         <Suspense fallback={<div>Loading subpage...</div>}>
           <Outlet />
         </Suspense>

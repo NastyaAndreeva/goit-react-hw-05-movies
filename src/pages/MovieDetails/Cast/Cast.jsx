@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getMovieCredits } from 'api/fetchMovie';
-import { CastList } from './CastList';
+import { CastList } from 'components/CastList';
 
 const Cast = () => {
   const [cast, setCast] = useState([]);

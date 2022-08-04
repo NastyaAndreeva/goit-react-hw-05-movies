@@ -1,4 +1,5 @@
-import { Header, Link } from './SharedLayout.styled';
+import { Header } from './Header';
+import { Link } from './Link';
 
 export const Appbar = () => {
   return (

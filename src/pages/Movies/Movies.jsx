@@ -28,7 +28,7 @@ const Movies = () => {
 
   return (
     <>
-      <SearchBar onSubmit={onSubmit} />
+      <SearchBar onSubmit={onSubmit} value={filmName} />
       <MovieList movies={movies} />
     </>
   );

@@ -1,8 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import {
-  MovieListStyled,
-  CardWrapper,
-} from 'components/MovieList/MovieList.styled';
+import { MovieListStyled, CardWrapper } from './MovieList.styled';
 
 export const MovieList = ({ movies }) => {
   const location = useLocation();

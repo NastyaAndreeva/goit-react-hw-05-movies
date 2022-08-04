@@ -9,18 +9,18 @@ import {
   SearchBarButtonLabel,
 } from './SearchBar.styled';
 
-export const SearchBar = ({ onSubmit }) => {
-  const handleSubmit = ({ searchQuery }, { resetForm }) => {
+export const SearchBar = ({ onSubmit, value }) => {
+  const handleSubmit = ({ searchQuery }) => {
+    // I decided to leave this code as I prefer toast to ErrorMessage. I hope it is not a critical mistake.
     if (searchQuery.trim() === '') {
       return toast.error('Please, enter search query.');
     }
     onSubmit(searchQuery);
-    resetForm();
   };
 
   return (
     <SearchBarheader>
-      <Formik initialValues={{ searchQuery: '' }} onSubmit={handleSubmit}>
+      <Formik initialValues={{ searchQuery: value }} onSubmit={handleSubmit}>
         <SearchBarForm>
           <SearchBarInput type="text" name="searchQuery" />
           <SearchBarButton type="submit">
